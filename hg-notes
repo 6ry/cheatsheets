@@ -1,0 +1,67 @@
+resources:
+http://mercurial.selenic.com/guide/
+http://hgbook.red-bean.com/read/
+http://mercurial.selenic.com/wiki/.hgignore
+http://www.selenic.com/mercurial/hg.1.html
+
+commands:
+hg help
+hg init             create a new repository
+
+hg clone            # makes an identical copy of an existing repository
+
+hg status
+hg status --all                 # list all files in repository
+hg summary
+hg log                          # history of changes in the repository
+
+hg showconfig
+
+hg add
+hg commit
+hg commit -m "message" [FILES]
+hg outgoing         # see what changes will be made before push
+hg backout
+hg push
+
+
+hg incoming         # to see what would have been added by a pull at the time you issued this command
+hg pull             # pull changes from a remote repository to a local one
+hg pull [-r REV]
+hg udpate
+
+hg revert --dry-run             # useful flag! (--dry-run or -n)
+hg revert --dry-run --all
+hg revert [FILES]
+
+hg diff [FILE]
+hg diff -c tip
+
+hg heads
+hg branch
+hg identity
+hg annotate -u -d FILE          # to see what changes are made by whom and when and which revision
+
+hg forget           # mark the specified files so they will no longer be tracked after the next commit
+hg remove           # schedule the indicated files for removal from the current branch
+
+hg addremove        # ???
+
+
+
+!!DEPREDATED!!
+hg tip
+hg rollback
+
+
+
+Examples:
+=========
+hg help log
+hg help diff
+
+hg log -v           verbose output
+hg log -vp          + patch info
+hg log -v -l 5      only show the last 5 commit logs
+
+hg rename abc.txt abc

@@ -1,0 +1,66 @@
+http://virtualenvwrapper.readthedocs.org/en/latest/
+http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html
+
+https://wiki.archlinux.org/index.php/Python_VirtualEnv#Virtualenvwrapper
+
+======================================
+
+
+     Create the virtualenv:
+
+$ mkvirtualenv -p /usr/bin/python2.7 my_env
+
+
+    Activate the virtualenv:
+
+$ workon my_env
+
+
+    Install some package inside the virtualenv (say, Django):
+
+(my_env)$ pip install django
+
+
+    list site packages
+
+(my_env)$ lssitepackages
+
+    Do your things
+    ...
+
+
+    Leave the virtualenv:
+
+(my_env)$ deactivate
+
+======================================
+
+
+    list all virtualenvs
+
+$ lsvirtualenv
+
+
+
+    show details of a single virtualenv
+
+$ showvirtualenv my_env
+
+
+
+    remove an environment
+
+$ rmvirtualenv some_env
+
+
+
+    duplicate an env
+
+$ cpvirtualenv env new_env
+
+
+
+    Path management
+    Adds the specified directories to the Python path for the currently-active virtualenv.
+
+$ add2virtualenv directory1 directory2 ...

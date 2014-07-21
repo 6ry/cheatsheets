@@ -1,0 +1,133 @@
+resources
+---------
+http://www.pantz.org/software/mysql/mysqlcommands.html
+http://cse.unl.edu/~sscott/ShowFiles/SQL/CheatSheet/SQLCheatSheet.html
+http://www.mysqltutorial.org/
+
+
+
+
+
+# in command line, run mysql with user <user> and prompt for password
+$ mysql -p -u <user>
+
+# import
+$ mysql -u <user> -p <password> < filename
+
+# backup database with mysqldump
+$ mysqldump --opt -u <username> -p <database> > database_backup.sql
+
+# backup all databases
+$ mysqldump --opt --all-databases > all_backup.sql
+
+
+
+
+
+# create database
+mysql> CREATE DATABASE <db>;
+
+# show all databases
+mysql> SHOW DATABASES;
+
+# use a database
+mysql> USE <db>;
+
+# currently selected database
+mysql> SELECT DATABASE();
+
+# show all tables in the current database
+mysql> SHOW TABLES;
+
+# list field/type/etc information for a given table
+mysql> DESCRIBE <tbl>;
+
+# delete a database
+mysql> DROP DATABASE <db>;
+
+# create a table
+mysql> CREATE TABLE table_name (field1_name TYPE(SIZE), field2_name TYPE(SIZE));
+
+# delete a table
+mysql> DROP TABLE <tbl>;
+
+# check if table exists
+mysql> SELECT 1 FROM <table> LIMIT 1;
+mysql> SHOW TABLES LIKE '<table>';
+# or ...
+mysql> SELECT * FROM information_schema.tables WHERE table_schema = '<db>' AND table_name = '<table>' LIMIT 1;
+
+
+
+# rename database
+mysqldump -u username -p -v olddatabase > olddbdump.sql
+mysqladmin -u username -p create newdatabase
+mysql -u username -p newdatabase < olddbdump.sql
+
+# clone table
+mysql> CREATE TABLE [new table] LIKE [orig table];
+mysql> INSERT INTO [new table] SELECT * FROM [orig table];
+
+# rename table
+mysql> rename table <oldtablename> to <newtablename>;
+
+# create user
+mysql> CREATE USER <username@host> IDENTIFIED BY <pa55word>;
+
+# examples
+
+# allow dbadmin connects from localhost
+mysql> CREATE USER 'dbadmin'@'localhost' IDENTIFIED BY 'CrEate-User';
+
+# allow superadmin connects from any host
+mysql> CREATE USER 'superadmin'@'%' IDENTIFIED 'Secured';
+
+# grant user all privileges for all databases and all objects
+CREATE USER 'super'@'localhost' IDENTIFIED BY 'SecurePass1';
+GRANT ALL ON *.* TO 'super'@'localhost' WITH GRANT OPTION;
+
+# change user password
+# mysql -u root -p
+mysql> SET PASSWORD FOR 'user'@'hostname' = PASSWORD('passwordhere');
+mysql> FLUSH PRIVILEGES;
+
+# show user privileges
+SHOW GRANTS FOR 'admin'@'localhost';
+
+
+
+# update a row in a table
+mysql> UPDATE <tbl> SET <field> = <new_val> WHERE <key> = <matching_key>;
+
+# show unique records
+mysql> SELECT DISTINCT <col> FROM <tbl>;
+
+# number of rows
+mysql> SELECT COUNT(*) FROM <table>;
+
+# sum column
+mysql> SELECT SUM(*) FROM <tbl>;
+
+# remove row(s)
+mysql> DELETE FROM <tbl> WHERE <field_name> = 'whatever';
+
+# remove column
+mysql> ALTER TABLE <tbl> DROP COLUMN <col>;
+
+# change column name
+mysql> ALTER TABLE [table name] CHANGE [old column name] [new column name] VARCHAR(50);
+
+# drop column
+mysql> ALTER TABLE [table name] DROP COLUMN [column name]
+
+
+
+
+# % is wildcard -- matches any number of characters
+mysql> SELECT * FROM table WHERE rec LIKE "blah%";
+
+# _ is matches any single character, e.g. find 5-char value
+SELECT * FROM table WHERE rec like "_____";
+
+# RLIKE or REGEXP
+mysql> SELECT * FROM table WHERE rec RLIKE "^b$";

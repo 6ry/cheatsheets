@@ -1,0 +1,18 @@
+git add
+git rm
+git mv
+
+git commit
+
+git add --cache
+
+git checkout -- <file>
+
+git fetch
+git merge
+
+git pull
+
+git log
+
+git diff ???
