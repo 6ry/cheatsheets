@@ -17,28 +17,28 @@ command         | action
 
 <http://www.postgresonline.com/special_feature.php?sf_name=postgresql83_psql_cheatsheet&outputformat=html>
 
-> This is psql 8.3.5, the PostgreSQL interactive terminal.
-> Usage: psql [OPTIONS]... [DBNAME [USERNAME]]
->
-> General options:
->
->   -c COMMAND
->   -d, --dbname=NAME
->   -f, --file=FILENAME
->   --help
->   -l, --list
->   -v NAME=VALUE
->   --version
->   -X
->
->   run only single command (SQL or internal) and exit
->   specify database name to connect to (default: "logged in username here")
->   execute commands from file, then exit
->   show this help, then exit
->   list available databases, then exit
->   set psql variable NAME to VALUE
->   output version information, then exit
->   do not read startup file (~/.psqlrc)
+    This is psql 8.3.5, the PostgreSQL interactive terminal.
+    Usage: psql [OPTIONS]... [DBNAME [USERNAME]]
+
+    General options:
+
+      -c COMMAND
+      -d, --dbname=NAME
+      -f, --file=FILENAME
+      --help
+      -l, --list
+      -v NAME=VALUE
+      --version
+      -X
+
+      run only single command (SQL or internal) and exit
+      specify database name to connect to (default: "logged in username here")
+      execute commands from file, then exit
+      show this help, then exit
+      list available databases, then exit
+      set psql variable NAME to VALUE
+      output version information, then exit
+      do not read startup file (~/.psqlrc)
 
 *****
 
