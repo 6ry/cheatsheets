@@ -1,0 +1,27 @@
+
+
+##
+## gcrypt setup
+##
+
+# turn a repo into bare repo
+# https://stackoverflow.com/questions/2816369/git-push-error-remote-rejected-master-master-branch-is-currently-checked
+# $ git config --bool core.bare true
+
+# first, init a *bare* git repo on the remote server
+
+
+# http://git-annex.branchable.com/tips/fully_encrypted_git_repositories_with_gcrypt/
+## pure git
+git init
+git config user.name "ggg"
+git config user.email "ggg@avec"
+git commit -m '0' --allow-empty
+#echo 'delia' >> dd.txt
+#git add .
+#git commit -m 'init commit'
+## git annex encrypted rsync remote
+git annex init "narvi"
+#git annex initremote nebula type=gcrypt gitrepo=ark:/home/nebula encryption=pubkey keyid=27ebb6e1 chunk=1MiB mac=HMACSHA512
+git annex initremote nebula type=gcrypt gitrepo=ssh://ark/home/nebula encryption=pubkey keyid=D@D chunk=1MiB mac=HMACSHA512
+git annex sync nebula

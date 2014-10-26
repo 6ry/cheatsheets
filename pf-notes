@@ -1,0 +1,73 @@
+http://www.openbsd.org/faq/pf/index.html
+http://www.openbsd.org/faq/pf/filter.html
+http://www.openbsd.org/faq/pf/example1.html
+http://www.pantz.org/software/pf/pfconfigfile.html
+http://home.roadrunner.com/~computertaijutsu/pf.html
+https://calomel.org/pf_config.html
+http://home.nuug.no/~peter/pf/en/index.html
+
+http://www.benzedrine.cx/pf.html
+https://calomel.org/pfstat.html
+
+http://www.bsdnow.tv/tutorials/openbsd-router
+
+
+
+flags
+-----
+-f file     load conf file
+
+-v          verbose
+-vv         more verbose
+-vvv        max verbosity
+
+-q          quite mode; only print errors and warnings
+-n          dry-run
+
+-e          enable pf
+-E          enable pf and increment reference count
+-d          disable pf
+
+-a anchor   apply flags -f, -F, -s only to the rules in anchor
+
+-i iface    restrict operation to given iface
+
+-s modifier show filter parameters by modifier
+
+-F modifier flush filter with parameters by modifier
+
+-T cmd [addr]   table operations on [addr]
+
+-x level    set debug level
+            level={none,urgent,misc,loud}
+
+
+
+examples
+--------
+# dry-run and verbose
+pfctl -v -n -f <file.conf>
+
+# juicy run
+pfctl -f <file.conf>
+
+# flush all the rules
+pfclt -F all -f /etc/pf.conf
+
+# clear stats
+pfctl -z
+
+# show filter info (-s)
+pfctl -s rules      # show loaded rules
+pfctl -s info       # show info
+pfctl -s Tables     # show all tables
+pfctl -s all        # show everything
+(more ...)
+
+# table operatsions (-T)
+pfctl -T kill       # kill a table
+pfctl -T flush      # flush all addresses of a table
+(more ...)
+
+# add new rules to <table> on the fly
+pfctl -t <table> -T <command> <address>

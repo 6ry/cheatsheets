@@ -1,0 +1,32 @@
+http://www.offermann.us/2013/12/tiny-docker-pieces-loosely-joined.html
+https://crosbymichael.com/advanced-docker-volumes.html
+http://www.tech-d.net/2013/12/16/persistent-volumes-with-docker-container-as-volume-pattern/
+https://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker
+
+
+
+https://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker
+
+Updated docs with backup/restore procedure
+==========================================
+* BACKUP
+    $ sudo docker run -rm --volumes-from DATA -v $(pwd):/backup busybox tar cvf /backup/backup.tar /data
+
+* RESTORE
+    # create a new data container
+    $ sudo docker run -v /data -name DATA2 busybox true
+
+    # untar the backup files into the new container᾿s data volume
+    $ sudo docker run -rm --volumes-from DATA2 -v $(pwd):/backup busybox tar xvf /backup/backup.tar
+    data/
+    data/sven.txt
+
+    # compare to the original container
+    $ sudo docker run -rm --volumes-from DATA -v `pwd`:/backup busybox ls /data
+    sven.txt
+
+
+
+
+
+http://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/
