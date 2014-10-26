@@ -85,6 +85,7 @@ mysql> CREATE USER 'superadmin'@'%' IDENTIFIED 'Secured';
 # grant user all privileges for all databases and all objects
 CREATE USER 'super'@'localhost' IDENTIFIED BY 'SecurePass1';
 GRANT ALL ON *.* TO 'super'@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'monty'@'localhost' WITH GRANT OPTION;
 
 # change user password
 # mysql -u root -p

@@ -1,8 +1,57 @@
+gitref.org
+http://git-scm.com/book
+
+=============================================
+
+Getting and Creating Projects
+
+    init
+    clone
+
+Basic Snapshotting
+
+    add
+    status
+    diff
+    commit
+    reset
+    rm, mv
+    stash
+
+Branching and Merging
+
+    branch
+    checkout
+    merge
+    log
+    tag
+
+Sharing and Updating Projects
+
+    fetch, pull
+    push
+    remote
+
+Inspection and Comparison
+
+    log
+    diff
+
+=============================================
+
+https://wiki.archlinux.org/index.php/Git
+
+git init
+
 git add
 git rm
 git mv
+git ls-files
 
 git commit
+git commit --all --mesage 'hello'
+git commit -am 'hello'
+git commit --amend    # edit commit message
 
 git add --cache
 
@@ -16,3 +65,14 @@ git pull
 git log
 
 git diff ???
+
+# list tags
+git tag -l
+
+# checkout specific tag
+git checkout tags/<tag_name>
+
+
+git whatchanged
+git whatchanged --since="2 weeks ago"
+git show
